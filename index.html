@@ -119,7 +119,7 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto;min-height
 <body>
 
 <div class="header">
-  <div class="logo">meu<span>treino</span></div>
+  <div class="logo">Meu<span>treino</span></div>
   <button class="btn-icon" onclick="toggleAdd()" id="addBtn" aria-label="Adicionar">+</button>
 </div>
 
@@ -162,9 +162,9 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto;min-height
 <div class="toast" id="toast"></div>
 
 <script>
-const DAYS=['Upper A','Lower A','Upper B','Lower B'];
+const DAYS=['Push','Pull','Legs','Upper', 'Lower'];
 const DEF={
-  'Upper A':[
+  'Push':[
     {id:1,name:'Supino reto barra',muscle:'Peito',series:4,reps:'10-12',load:0,rest:90,obs:''},
     {id:2,name:'Remada curvada',muscle:'Costas',series:4,reps:'10-12',load:0,rest:90,obs:''},
     {id:3,name:'Supino inclinado halter',muscle:'Peito',series:3,reps:'10-12',load:0,rest:90,obs:''},
@@ -173,14 +173,14 @@ const DEF={
     {id:6,name:'Tríceps corda',muscle:'Tríceps',series:3,reps:'12-15',load:0,rest:60,obs:''},
     {id:7,name:'Rosca direta',muscle:'Bíceps',series:3,reps:'12',load:0,rest:60,obs:''},
   ],
-  'Lower A':[
+  'Pull':[
     {id:8,name:'Leg press',muscle:'Perna',series:4,reps:'12-15',load:0,rest:120,obs:''},
     {id:9,name:'Cadeira extensora',muscle:'Perna',series:3,reps:'15',load:0,rest:60,obs:''},
     {id:10,name:'Mesa flexora',muscle:'Posterior',series:3,reps:'12',load:0,rest:60,obs:''},
     {id:11,name:'Panturrilha em pé',muscle:'Panturrilha',series:4,reps:'15-20',load:0,rest:45,obs:''},
     {id:12,name:'Abdominal prancha',muscle:'Abdômen',series:3,reps:'30-45s',load:0,rest:45,obs:''},
   ],
-  'Upper B':[
+  'Legs':[
     {id:13,name:'Barra fixa ou puxada',muscle:'Costas',series:4,reps:'8-10',load:0,rest:90,obs:''},
     {id:14,name:'Remada máquina',muscle:'Costas',series:3,reps:'12',load:0,rest:90,obs:''},
     {id:15,name:'Supino máquina',muscle:'Peito',series:3,reps:'12',load:0,rest:90,obs:''},
@@ -189,7 +189,7 @@ const DEF={
     {id:18,name:'Rosca alternada',muscle:'Bíceps',series:3,reps:'12',load:0,rest:60,obs:''},
     {id:19,name:'Tríceps testa',muscle:'Tríceps',series:3,reps:'10-12',load:0,rest:60,obs:''},
   ],
-  'Lower B':[
+  'Lower':[
     {id:20,name:'Terra romeno',muscle:'Posterior',series:4,reps:'10-12',load:0,rest:120,obs:''},
     {id:21,name:'Afundo com halter',muscle:'Glúteo',series:3,reps:'12 cada',load:0,rest:90,obs:''},
     {id:22,name:'Cadeira flexora',muscle:'Posterior',series:3,reps:'12',load:0,rest:60,obs:''},
@@ -208,7 +208,7 @@ function initEx(){
 }
 let exs=initEx();
 let hist=JSON.parse(localStorage.getItem('mt_hist')||'[]');
-let curDay='Upper A',addOpen=false,nextId=200;
+let curDay='Push',addOpen=false,nextId=200;
 let tTotal=60,tRemain=60,tPaused=false,tInterval=null;
 
 function save(){localStorage.setItem('mt_exs',JSON.stringify(exs));localStorage.setItem('mt_hist',JSON.stringify(hist));}
